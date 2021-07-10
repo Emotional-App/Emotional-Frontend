@@ -1,0 +1,55 @@
+.register {
+    background-color: honeydew;
+    margin-top: 7rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.image-holder img {
+    height: 100%;
+}
+
+img {
+    width: 100%;
+    height: 100vh;
+}
+
+.sign-up form {
+    margin: 45px;
+    padding-top: 40px;
+    width: 28vw;
+    margin-right: 5rem;
+}
+
+.signup {
+    padding: 0 auto;
+}
+
+.signup-btn {
+    width: 100%;
+    padding: 0;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.signup-btn div {
+    background-color: green;
+    height: 5vh;
+    padding: auto;
+    color: white;
+    padding-top: 0.7vh;
+}
+
+.signup-btn:hover div {
+    background-color: #106310;
+} 
+
+a {
+    color: green
+}
+
+a:hover {
+    color: #106310;
+}
+
