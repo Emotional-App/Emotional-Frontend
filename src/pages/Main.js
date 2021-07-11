@@ -8,8 +8,8 @@ import { icons } from "../utils"
 const options = [
   { name: "Home", url: "/" },
   { name: "About", url: "/" },
-  { name: "Home", url: "/" },
-  { name: "Home", url: "/" },
+  { name: "Features", url: "/" },
+  { name: "Contact", url: "/" },
 ]
 
 export default function Main() {
@@ -32,7 +32,7 @@ export default function Main() {
   }
 
   return (
-    <div id="main">
+    <div className="main">
       <header id="header" className="align-items-center">
         <div className="logo">
           <h1 className="float-child flex-logo">
