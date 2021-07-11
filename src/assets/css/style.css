@@ -63,11 +63,11 @@ html {
 }
 
 #navbar {
- flex: 0.97;
- display: flex;
- justify-content: flex-end;
- margin: 0;
- margin-right: 3rem;
+  flex: 0.97;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  margin-right: 3rem;
 }
 
 #navbar li {
@@ -128,14 +128,14 @@ html {
   margin-top: 46px;
 }
 
-#sign-up .sign-up-btn:hover { 
-    opacity: 0.7;
+#sign-up .sign-up-btn:hover {
+  opacity: 0.7;
 }
 /* End sign-up */
 
 /* Start about-us */
-#about-us{
-    background-color: rgb(173, 235, 226);
+#about-us {
+  background-color: rgb(173, 235, 226);
 }
 
 #about-us .container {

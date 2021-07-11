@@ -1,6 +1,6 @@
-// if development environment -> call localhost
-// else -> call Azure
+const path =
+  process.env.NODE_ENV === "production"
+    ? "https://emotionalapi.azurewebsites.net/api"
+    : "https://localhost:5001/api"
 
-const url = "http://localhost:5000/api"
-
-export default url 
+export default path

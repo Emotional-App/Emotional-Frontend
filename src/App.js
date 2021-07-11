@@ -1,7 +1,7 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { SignUp, Login, Main } from "./pages";
+import { BrowserRouter, Switch, Route } from "react-router-dom"
+import { SignUp, Login, Main } from "./pages"
 
-import "./App.css";
+import "./App.css"
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Route path="/" component={Main} />
       </Switch>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

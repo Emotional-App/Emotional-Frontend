@@ -1,5 +1,5 @@
-import Login from "./Login";
-import SignUp from "./SignUp";
-import Main from "./Main";
+import Login from "./Login"
+import SignUp from "./SignUp"
+import Main from "./Main"
 
-export { Login, SignUp, Main };
+export { Login, SignUp, Main }
