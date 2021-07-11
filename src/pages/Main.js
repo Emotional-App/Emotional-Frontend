@@ -8,8 +8,8 @@ import { icons } from "../utils"
 const options = [
   { name: "Home", url: "/" },
   { name: "About", url: "/" },
-  { name: "Home", url: "/" },
-  { name: "Home", url: "/" },
+  { name: "Features", url: "/" },
+  { name: "Contact", url: "/" },
 ]
 
 export default function Main() {
