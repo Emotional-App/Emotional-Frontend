@@ -1,6 +1,6 @@
-import "../assets/css/login.css";
+import "../assets/css/login.css"
 
-import { icons } from "../utils";
+import { icons } from "../utils"
 
 function Login() {
   return (
@@ -56,7 +56,7 @@ function Login() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Login;
+export default Login

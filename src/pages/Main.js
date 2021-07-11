@@ -1,35 +1,35 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React from "react"
+import { useHistory } from "react-router-dom"
 
-import "../assets/css/style.css";
+import "../assets/css/style.css"
 
-import { icons } from "../utils";
+import { icons } from "../utils"
 
 const options = [
-  {name: "Home", url: "/"},
-  {name: "About", url: "/"},
-  {name: "Home", url: "/"},
-  {name: "Home", url: "/"},
+  { name: "Home", url: "/" },
+  { name: "About", url: "/" },
+  { name: "Home", url: "/" },
+  { name: "Home", url: "/" },
 ]
 
 export default function Main() {
-  const history = useHistory();
+  const history = useHistory()
 
   const goToSignUp = () => {
-    history.push("/sign-up");
-  };
+    history.push("/sign-up")
+  }
 
   const goToLogIn = () => {
-    history.push("/login");
-  };
+    history.push("/login")
+  }
 
   const renderNavBarMenu = (option, url) => {
     return (
       <li>
         <a href={url}>{option}</a>
       </li>
-    );
-  };
+    )
+  }
 
   return (
     <div id="main">
@@ -40,12 +40,9 @@ export default function Main() {
           </h1>
         </div>
         <ul id="navbar">
-          {options.map(o => renderNavBarMenu(o.name, o.url))}
+          {options.map((o) => renderNavBarMenu(o.name, o.url))}
         </ul>
-        <button
-          className="login-btn"
-          onClick={goToLogIn}
-        >
+        <button className="login-btn" onClick={goToLogIn}>
           Login
         </button>
       </header>
@@ -57,10 +54,7 @@ export default function Main() {
             Happiness is simple. We are here to help you feel simple thing.
           </h2>
         </div>
-        <button
-          className="sign-up-btn"
-          onClick={goToSignUp}
-        >
+        <button className="sign-up-btn" onClick={goToSignUp}>
           Sign up
         </button>
       </div>
@@ -114,5 +108,5 @@ export default function Main() {
         </div>
       </div>
     </div>
-  );
+  )
 }

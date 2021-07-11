@@ -1,3 +1,4 @@
-import * as icons from "./icons";
+import * as icons from "./icons"
+import { signUpValue } from "./constants"
 
-export { icons };
+export { icons, signUpValue }
