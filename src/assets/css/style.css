@@ -8,6 +8,7 @@
 html {
   font-family: Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
+  
 }
 
 /* common */
@@ -18,6 +19,9 @@ html {
 }
 
 /* main */
+.main{
+  background: linear-gradient(150deg, rgb(240, 243, 242) 0%, rgb(243, 245, 244)5%, rgb(125, 219, 182) 100%);
+}
 
 /* header */
 #header {
@@ -134,9 +138,6 @@ html {
 /* End sign-up */
 
 /* Start about-us */
-#about-us {
-  background-color: rgb(173, 235, 226);
-}
 
 #about-us .container {
   padding: 5% 0;
@@ -169,7 +170,13 @@ html {
 /* end about us */
 
 /* start features */
-.features {
+#features{
+  margin-top: 0rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+#features .features {
   display: flex;
   text-align: center;
   padding: 20px;
