@@ -2,16 +2,67 @@ import axios from "axios"
 
 import path from "./baseUrl"
 
-// signup
+const signUp = async (userName, email, password) => {
+  const result = await axios.post(`${path}/auth/signup`, {
+    userName,
+    email,
+    password,
+  })
 
-const signUp = async (user, email, password) => {
-  const result = await axios.post(`${path}/auth/signup`, {user, email, password })
+  if (result) {
+    saveUserLogin()
+  }
 
   return result.data
 }
 
-// login
+const login = async (email, password) => {
+  const result = await axios.post(`${path}/auth/login`, {
+    email,
+    password,
+  })
 
-const login = (user, email, password) => {}
+  return result.data
+}
 
-export { signUp, login }
+// Helpers
+
+const saveUserLogin = (token, expire, userName, userId) => {
+  localStorage.setItem("token", token)
+  localStorage.setItem("expire", expire)
+  localStorage.setItem("userName", userName)
+  localStorage.setItem("userId", userId)
+}
+
+const removeUserLogin = () => {
+  localStorage.removeItem("token")
+  localStorage.removeItem("expire")
+  localStorage.removeItem("userName")
+  localStorage.removeItem("userId")
+}
+
+const getToken = () => {
+  localStorage.getItem("token")
+}
+
+const getExpire = () => {
+  localStorage.getItem("expire")
+}
+
+const getUserName = () => {
+  localStorage.getItem("userName")
+}
+
+const getUserId = () => {
+  localStorage.getItem("userId")
+}
+
+export {
+  signUp,
+  login,
+  removeUserLogin,
+  getToken,
+  getExpire,
+  getUserId,
+  getUserName,
+}

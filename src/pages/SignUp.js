@@ -6,17 +6,17 @@ import "../assets/css/sign-up.css"
 import { icons, signUpValue } from "../utils"
 import { apiAuth } from "../api"
 
-function SignUp() {
-  const [user, setUser] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmedPassword, setConfirmedPassword] = useState("")
+function SignUp(props) {
+  const [userName, setUserName] = useState("4")
+  const [email, setEmail] = useState("4@gmail.com")
+  const [password, setPassword] = useState("4")
+  const [confirmedPassword, setConfirmedPassword] = useState("4")
   const [errorMessage, setErrorMessage] = useState("")
 
   const isInputValid = () => {
     let message = ""
-    if (!user) {
-      message+="Please enter your user name!\n"
+    if (!userName) {
+      message += "Please enter your user name!\n"
     }
     if (!email) {
       message += "Please enter your email!\n"
@@ -41,15 +41,17 @@ function SignUp() {
 
   const handleSignUp = async () => {
     if (isInputValid()) {
-      const token = await apiAuth.signUp(user, email, password)
-      console.log(token)
+      const result = await apiAuth.signUp(userName, email, password)
+
+      // if error -> setErrorMessage
+      // else -> goToDashboard
     }
   }
 
   const updateValue = (option, value) => {
     switch (option) {
       case signUpValue.user:
-        setUser(value)
+        setUserName(value)
         break
       case signUpValue.email:
         setEmail(value)
@@ -85,7 +87,7 @@ function SignUp() {
               <input
                 className="form-control"
                 placeholder={signUpValue.user}
-                value={user}
+                value={userName}
                 onChange={(e) => updateValue(signUpValue.user, e.target.value)}
               />
             </div>
