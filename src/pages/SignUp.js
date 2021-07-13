@@ -1,17 +1,21 @@
-import { useState } from "react"
+import React, { useContext, useState } from "react"
+import { useHistory } from "react-router-dom"
 import { Alert } from "react-bootstrap"
 
 import "../assets/css/sign-up.css"
 
 import { icons, signUpValue } from "../utils"
-import { apiAuth } from "../api"
+import AuthContext from "../context/AuthContext"
 
-function SignUp(props) {
+function SignUp() {
   const [userName, setUserName] = useState("4")
   const [email, setEmail] = useState("4@gmail.com")
   const [password, setPassword] = useState("4")
   const [confirmedPassword, setConfirmedPassword] = useState("4")
   const [errorMessage, setErrorMessage] = useState("")
+
+  const history = useHistory()
+  const authObj = useContext(AuthContext)
 
   const isInputValid = () => {
     let message = ""
@@ -41,10 +45,11 @@ function SignUp(props) {
 
   const handleSignUp = async () => {
     if (isInputValid()) {
-      const result = await apiAuth.signUp(userName, email, password)
+      const result = await authObj.signUp(userName, email, password)
 
-      // if error -> setErrorMessage
-      // else -> goToDashboard
+      if (result) {
+        history.push("/dashboard")
+      }
     }
   }
 

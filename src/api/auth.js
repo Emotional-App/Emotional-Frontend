@@ -1,19 +1,20 @@
 import axios from "axios"
 
 import path from "./baseUrl"
+import { apiPost } from "./axiosObj"
 
 const signUp = async (userName, email, password) => {
-  const result = await axios.post(`${path}/auth/signup`, {
+  const result = await apiPost("auth/signup", {
     userName,
     email,
     password,
   })
 
-  if (result) {
-    saveUserLogin()
+  if (result.token) {
+    saveUserLogin(result.token)
   }
 
-  return result.data
+  return result
 }
 
 const login = async (email, password) => {
@@ -27,11 +28,11 @@ const login = async (email, password) => {
 
 // Helpers
 
-const saveUserLogin = (token, expire, userName, userId) => {
-  localStorage.setItem("token", token)
-  localStorage.setItem("expire", expire)
-  localStorage.setItem("userName", userName)
-  localStorage.setItem("userId", userId)
+const saveUserLogin = (token) => {
+  localStorage.setItem("token", token.token)
+  localStorage.setItem("expire", token.expires)
+  localStorage.setItem("userName", token.userName)
+  localStorage.setItem("userId", token.userId)
 }
 
 const removeUserLogin = () => {

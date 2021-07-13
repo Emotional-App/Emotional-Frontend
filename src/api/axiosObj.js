@@ -1,19 +1,31 @@
 import axios from "axios"
+
 import path from "./baseUrl"
 
-export const methods = {
-  GET: axios.get,
-  POST: axios.post,
+const methods = {
+  GET: "GET",
+  POST: "POST",
 }
 
-const config = {
+const isAuth = {
+  authorised: true,
+  unauthorised: false,
+}
+
+const authConfig = {
   headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 }
 
-export const apiCall = (axiosMethod, directPath, obj) => {
-  if (obj && axiosMethod === methods.POST) {
-    return axiosMethod(`${path}/${directPath}`, obj, config)
-  }
+const apiPost = async (directPath, obj, isAuth = false) => {
+  const config = isAuth ? authConfig : null
+  try {
+    const result = await axios.post(`${path}/${directPath}`, obj, config)
 
-  return axiosMethod(`${path}/${directPath}`, config)
+    return result.data
+  } catch (err) {
+    console.log(err.response?.status)
+    console.log(err.response?.data)
+  }
 }
+
+export { methods, isAuth, apiPost }

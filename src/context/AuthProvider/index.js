@@ -4,29 +4,33 @@ import { apiAuth } from "../../api"
 import AuthContext from "../AuthContext"
 
 const AuthProvider = (props) => {
-  const [userName, setUserName] = useState("")
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
-  const [uid, setUid] = useState("")
-  const [token, setToken] = useState("")
+  const [isLoading, setLoading] = useState(true)
+  const [isLoggedIn, setLoggedIn] = useState(false)
 
   useEffect(() => {
     const token = apiAuth.getToken()
 
     if (token) {
-      // check expire -> logout
-      // else assign values
+      // todo: get expire and check expire
+
+      setLoggedIn(true)
     }
 
-    setIsLoading(false)
+    setLoading(false)
   }, [])
 
-  const logIn = async (email, password) => {
-    return await apiAuth.login(email, password)
+  const signUp = async (userName, email, password) => {
+    const result = await apiAuth.signUp(userName, email, password)
+    setLoggedIn(true)
+
+    return result
   }
 
-  const signUp = async (userName, email, password) => {
-    return await apiAuth.signUp(userName, email, password)
+  const logIn = async (email, password) => {
+    const result = await apiAuth.login(email, password)
+    setLoggedIn(true)
+
+    return result
   }
 
   const logOut = () => {
@@ -34,11 +38,8 @@ const AuthProvider = (props) => {
   }
 
   const obj = {
-    userName,
-    isLoggedIn,
     isLoading,
-    uid,
-    token,
+    isLoggedIn,
     logIn,
     logOut,
     signUp,
